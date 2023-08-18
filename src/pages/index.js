@@ -1,7 +1,8 @@
 import Head from "next/head";
 import RootLayout from "../components/layouts/RootLayout";
 import Banner from "@/components/ui/Banner";
-import Products from "@/components/ui/products";
+import Products from "../components/ui/Products";
+import Categories from "@/components/ui/Categories";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
       </Head>
       <Banner />
       <Products />
+      <Categories />
     </div>
   );
 };
