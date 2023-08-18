@@ -1,12 +1,19 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
+import Head from "next/head";
+import RootLayout from "../components/layouts/RootLayout";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+const HomePage = () => {
   return (
-    <>
-      <h1>simple pc builder</h1>
-    </>
+    <div>
+      <Head>
+        <title>Home page</title>
+        <meta name="home page" description="this page is created by next js" />
+      </Head>
+      <h1>This is HomePage</h1>
+    </div>
   );
-}
+};
+
+export default HomePage;
+HomePage.getLayout = function getLayout(page) {
+  return <RootLayout>{page}</RootLayout>;
+};
