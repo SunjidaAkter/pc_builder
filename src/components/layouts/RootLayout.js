@@ -5,7 +5,7 @@ const RootLayout = ({ children }) => {
   return (
     <div>
       <Navbar />
-      {children}
+      <div className="">{children}</div>
       <Footer />
     </div>
   );

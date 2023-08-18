@@ -1,5 +1,7 @@
 import Head from "next/head";
 import RootLayout from "../components/layouts/RootLayout";
+import Banner from "@/components/ui/Banner";
+import Products from "@/components/ui/products";
 
 const HomePage = () => {
   return (
@@ -8,7 +10,8 @@ const HomePage = () => {
         <title>Home page</title>
         <meta name="home page" description="this page is created by next js" />
       </Head>
-      <h1>This is HomePage</h1>
+      <Banner />
+      <Products />
     </div>
   );
 };
