@@ -117,7 +117,7 @@ const Categories = ({ products }) => {
             </ul>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="my-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:px-24 md:px-24 px-12">
           {filteredProducts?.slice(0, visibleProducts).map((product, index) => (
             <PortfolioCard
               key={index}
@@ -155,31 +155,23 @@ const PortfolioCard = ({
 }) => {
   return (
     <div
-      className={`shadow border group hover:shadow-lg  p-2 transition duration-300 ease-in-out rounded-xl ${
+      className={`w-[90%] card card-compact my-8 bg-base-300 shadow-xl ${
         showCard === "all" || showCard === category.toLowerCase()
           ? "block"
           : "hidden"
       }`}
     >
-      <div className="relative mb-12">
-        <div className="h-[300px] overflow-hidden transition duration-300 rounded-xl">
-          <img
-            src={ImageHref}
-            alt={title}
-            className="w-full h-full object-fill object-center group-hover:scale-110 transition duration-300 ease-in-out"
-          />
-        </div>
-        <div className="relative text-center">
-          <span className="block mb-2 text-sm font-semibold text-accent">
-            {category}
-          </span>
-          <h3 className="mb-4 text-xl font-bold text-dark">{title}</h3>
-          <Link
-            href={buttonHref}
-            className="inline-block py-3 text-sm font-semibold transition border rounded-md px-7 text-body-color hover:border-accent hover:bg-base-300 hover:text-black"
-          >
+      <figure>
+        <img className="w-full h-[280px]" src={ImageHref} alt="Shoes" />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">{category}</h2>
+        <p>{title}</p>
+        <div className="card-actions justify-end">
+          <Link href={buttonHref} className="btn btn-primary">
             {button}
           </Link>
+          {/* <button className="">Buy Now</button> */}
         </div>
       </div>
     </div>
