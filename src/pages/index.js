@@ -12,7 +12,7 @@ const HomePage = ({ products }) => {
         <meta name="home page" description="this page is created by next js" />
       </Head>
       <Banner />
-      <Products />
+      <Products products={products} />
       <Categories products={products} />
     </div>
   );

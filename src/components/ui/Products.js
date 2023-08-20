@@ -1,7 +1,8 @@
 import React from "react";
 import Card from "./Card";
 
-const Products = () => {
+const Products = ({ products }) => {
+  console.log("____________", products);
   return (
     <div className="px-12 lg:px-24 md:px-16 my-14">
       <div className="text-center mb-10 space-y-3">
@@ -11,12 +12,9 @@ const Products = () => {
         <p>Our Featured Products.</p>
       </div>
       <div className="my-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {products?.slice(0, 6).map((product) => (
+          <Card product={product}></Card>
+        ))}
       </div>
     </div>
   );

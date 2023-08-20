@@ -133,7 +133,7 @@ const Categories = ({ products }) => {
         <div className="flex justify-center mt-8">
           <button
             onClick={() => setVisibleProducts((prevCount) => prevCount + 3)}
-            className={`btn btn-accent ${
+            className={`btn btn-primary ${
               visibleProducts < filteredProducts?.length ? "block" : "hidden"
             }`}
           >
