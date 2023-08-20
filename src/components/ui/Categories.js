@@ -155,7 +155,7 @@ const PortfolioCard = ({
 }) => {
   return (
     <div
-      className={`w-[90%] card card-compact my-8 bg-base-300 shadow-xl ${
+      className={`w-[90%] card card-compact my-8 bg-base-100 shadow-xl ${
         showCard === "all" || showCard === category.toLowerCase()
           ? "block"
           : "hidden"

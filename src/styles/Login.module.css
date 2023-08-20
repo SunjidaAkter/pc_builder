@@ -1,12 +1,11 @@
 .form {
   width: 30%;
-  height: 350px;
   border-radius: 10px;
-  background: #aaaaaa;
+  background: #fff;
   margin: 8% auto;
   padding: 20px;
   text-align: center;
-  color: black;
+  color: #570df8;
 }
 
 .form form {
@@ -30,5 +29,5 @@
   font-size: 40px;
   margin: 20px auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }

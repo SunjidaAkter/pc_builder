@@ -14,6 +14,7 @@ import { GoogleOutlined, GithubOutlined } from "@ant-design/icons";
 import Head from "next/head";
 import styles from "@/styles/Login.module.css";
 import { signIn } from "next-auth/react";
+import RootLayout from "@/components/layouts/RootLayout";
 const LoginPage = () => {
   const {
     register,
@@ -28,7 +29,7 @@ const LoginPage = () => {
         <title>Next Login</title>
       </Head>
       <div className={styles.form}>
-        <h3>LOGIN</h3>
+        <h3 className="text-5xl font-bold mb-8 mt-28">Login</h3>
         <div className={styles.social_icons}>
           <GoogleOutlined
             onClick={() =>
@@ -45,7 +46,7 @@ const LoginPage = () => {
             }
           />
         </div>
-        <hr />
+        {/* <hr />
         <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="">Your Email</label>
           <input {...register("email", { required: true })} type="email" />
@@ -55,10 +56,13 @@ const LoginPage = () => {
             type="password"
           />
           <button type="submit">Login</button>
-        </form>
+        </form> */}
       </div>
     </div>
   );
 };
 
 export default LoginPage;
+LoginPage.getLayout = function getLayout(page) {
+  return <RootLayout>{page}</RootLayout>;
+};

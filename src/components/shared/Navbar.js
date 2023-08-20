@@ -1,8 +1,11 @@
+import { useSession, signOut } from "next-auth/react";
+import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
+  const { data: session } = useSession();
   return (
-    <div className="navbar bg-base-300">
+    <div className="navbar lg:px-12 md:px-6 px-0 bg-base-300">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -29,37 +32,69 @@ const Navbar = () => {
               <a>Item 1</a>
             </li>
             <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
+              <details>
+                <summary>Categories</summary>
+                <ul className="p-2 lg:w-60 z-20">
+                  <li>
+                    <Link href={`/product/cpu_processor`}>CPU / Processor</Link>
+                  </li>
+                  <li>
+                    <Link href={`/product/motherboard`}>Motherboard</Link>
+                  </li>{" "}
+                  <li>
+                    <Link href={`/product/ram`}>RAM</Link>
+                  </li>{" "}
+                  <li>
+                    <Link href={`/product/storage_device`}>Storage Device</Link>
+                  </li>{" "}
+                  <li>
+                    <Link href={`/product/power_supply_unit`}>
+                      Power Supply Unit
+                    </Link>
+                  </li>{" "}
+                  <li>
+                    <Link href={`/product/monitor`}>Monitor</Link>
+                  </li>
+                </ul>
+              </details>
             </li>
             <li>
               <a>Item 3</a>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-primary font-bold normal-case lg:text-5xl md:text-3xl text-xl">
+          Tech
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
+            <Link href="/">Home</Link>
           </li>
-          <li tabIndex={0}>
+          <li>
             <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
+              <summary>Categories</summary>
+              <ul className="p-2 lg:w-60 z-20">
                 <li>
-                  <a>Submenu 1</a>
+                  <Link href={`/product/cpu_processor`}>CPU / Processor</Link>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <Link href={`/product/motherboard`}>Motherboard</Link>
+                </li>{" "}
+                <li>
+                  <Link href={`/product/ram`}>RAM</Link>
+                </li>{" "}
+                <li>
+                  <Link href={`/product/storage_device`}>Storage Device</Link>
+                </li>{" "}
+                <li>
+                  <Link href={`/product/power_supply_unit`}>
+                    Power Supply Unit
+                  </Link>
+                </li>{" "}
+                <li>
+                  <Link href={`/product/monitor`}>Monitor</Link>
                 </li>
               </ul>
             </details>
@@ -70,7 +105,21 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <a className="btn btn-primary">PC BUILDER</a>
+        {session?.user ? (
+          <li
+            onClick={() => signOut()}
+            className="btn btn-ghost text-primary hover:bg-transparent focus:bg-transparent"
+          >
+            Logout
+          </li>
+        ) : (
+          <Link href="/login">
+            <li className="btn btn-ghost text-primary hover:bg-transparent focus:bg-transparent">
+              Login
+            </li>
+          </Link>
+        )}
       </div>
     </div>
   );

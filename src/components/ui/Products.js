@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const Products = () => {
   return (
-    <div className="px-12 lg:px-24 md:px-24 my-14">
+    <div className="px-12 lg:px-24 md:px-16 my-14">
       <div className="text-center mb-10 space-y-3">
         <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl">
           Featured Products
